@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Balance() {
   return (
       <View style={styles.balanceContainer}>
-        <Text>Balance:</Text>
-        <Text>0€</Text>
+        <Text style={styles.text}>Balance:</Text>
+        <Text style={styles.text}>0€</Text>
       </View>
   );
 }
@@ -16,5 +16,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
     padding: 20,
     borderRadius: 20,
+  },
+  text: {
+    color: 'white',
+    padding: 5,
+    fontSize: 20
   }
 });
