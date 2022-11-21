@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 
 import Balance from './components/Balance';
+import DataInputExpediture from './components/DataInputExpenditure';
+import DataInputIncome from './components/DataInputIncome';
 import ListItem from './components/ListItem';
 import OptionsButtons from './components/OptionsButtons';
 
@@ -17,6 +19,8 @@ export default function App() {
       <OptionsButtons/>
       <ListItem/>
       <ListItem/>
+      <DataInputIncome/>
+      <DataInputExpediture/>
       <StatusBar style="auto" hidden={true}/>
     </View>
   );
