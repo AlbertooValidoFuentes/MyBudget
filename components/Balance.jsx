@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Balance() {
+export default function Balance({balance}) {
   return (
       <View style={styles.balanceContainer}>
         <Text style={styles.text}>Balance:</Text>
-        <Text style={styles.text}>0€</Text>
+        <Text style={styles.text}>{balance} €</Text>
       </View>
   );
 }

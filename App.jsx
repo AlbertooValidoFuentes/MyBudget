@@ -1,14 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
 
 import Balance from './components/Balance';
 import ListItem from './components/ListItem';
 import OptionsButtons from './components/OptionsButtons';
 
 export default function App() {
+
+  const [balance, setBalance] = useState(0)
+  const [transaction, setTransaction] = useState([])
+
   return (
     <View style={styles.container}>
-      <Balance/>
+      <Balance balance={balance}/>
       <OptionsButtons/>
       <ListItem/>
       <ListItem/>
