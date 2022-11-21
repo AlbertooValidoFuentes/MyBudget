@@ -15,15 +15,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2C3E50',
     alignItems: 'center',
-    margin: 20
   },
-  balanceContainer: {
-    width: '100%',
-    alignItems: 'center',
-    backgroundColor: 'grey',
-    padding: 20,
-    borderRadius: 20,
-  }
 });

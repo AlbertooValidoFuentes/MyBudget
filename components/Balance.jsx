@@ -11,11 +11,12 @@ export default function Balance() {
 
 const styles = StyleSheet.create({
   balanceContainer: {
-    width: '100%',
+    width: '90%',
     alignItems: 'center',
-    backgroundColor: 'grey',
+    backgroundColor: '#3498DB',
     padding: 20,
     borderRadius: 20,
+    margin: 20
   },
   text: {
     color: 'white',
