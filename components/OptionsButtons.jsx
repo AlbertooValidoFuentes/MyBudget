@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 
 export default function OptionsButtons() {
   return (
       <View style={styles.optionsContainer}>
-        <Text>Hello</Text>
+        <Pressable style={[styles.optionMargin, styles.buttonStyle]}>
+          <Text style={styles.buttonTextStyle}>Ingreso</Text>
+        </Pressable>
+        <Pressable style={styles.buttonStyle}>
+          <Text style={styles.buttonTextStyle}>Gasto</Text>
+        </Pressable>
       </View>
   );
 }
@@ -12,9 +17,22 @@ const styles = StyleSheet.create({
   optionsContainer: {
     width: '90%',
     alignItems: 'center',
-    backgroundColor: '#3498DB',
-    padding: 20,
-    borderRadius: 20,
-    margin: 20
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
+  optionMargin: {
+    marginRight: 10,
+  },
+  buttonStyle: {
+    backgroundColor: '#3498DB',
+    padding: 15,
+    width: 100,
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  buttonTextStyle: {
+    color: 'white',
+    fontsize: 18,
+    fontWeight: 'bold'
+  }
 });
