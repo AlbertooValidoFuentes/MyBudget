@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import Balance from './components/Balance';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Balance/>
+      <StatusBar style="auto" hidden={true}/>
     </View>
   );
 }
@@ -15,6 +17,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    margin: 20
   },
+  balanceContainer: {
+    width: '100%',
+    alignItems: 'center',
+    backgroundColor: 'grey',
+    padding: 20,
+    borderRadius: 20,
+  }
 });
