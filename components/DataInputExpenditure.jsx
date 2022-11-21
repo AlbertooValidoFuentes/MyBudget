@@ -1,11 +1,11 @@
 
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 
-export default function DataInputIncome() {
+export default function DataInputExpediture() {
     return (
-        <Modal visible={false} animationType={'fade'} transparent={true}>
+        <Modal visible={true} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
-                <Text style={styles.title}>Ingreso:</Text>
+                <Text style={styles.title}>Gasto:</Text>
                 <TextInput
                     style={styles.inputStyle}
                     placeholder='Introduce la cantidad'
@@ -24,7 +24,7 @@ export default function DataInputIncome() {
                     placeholderTextColor='white'
                 />
                 <Pressable style={styles.buttonStyle}>
-                    <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
+                    <Text style={styles.buttonTextStyle}>Añadir gasto</Text>
                 </Pressable>
             </View>
         </Modal>
