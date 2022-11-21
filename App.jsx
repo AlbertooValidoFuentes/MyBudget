@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Balance from './components/Balance';
+import ListItem from './components/ListItem';
 import OptionsButtons from './components/OptionsButtons';
 
 export default function App() {
@@ -9,6 +10,8 @@ export default function App() {
     <View style={styles.container}>
       <Balance/>
       <OptionsButtons/>
+      <ListItem/>
+      <ListItem/>
       <StatusBar style="auto" hidden={true}/>
     </View>
   );
