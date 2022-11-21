@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-nativ
 
 export default function DataInputExpediture() {
     return (
-        <Modal visible={true} animationType={'fade'} transparent={true}>
+        <Modal visible={false} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
                 <Text style={styles.title}>Gasto:</Text>
                 <TextInput
