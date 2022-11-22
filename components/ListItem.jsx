@@ -1,9 +1,10 @@
 import { FlatList, Pressable, StyleSheet, Text, View, Image } from 'react-native';
 
-export default function ListItem({ tipo, cantidad, descripcion, fecha, id, setTransaction, transaction }) {
+export default function ListItem(
+  { tipo, cantidad, descripcion, fecha, id, setTransaction, transaction, balance, setBalance }) {
 
   const removeProductHandler = () => {
-    
+    setBalance(balance - cantidad)
     setTransaction(() => transaction.filter((transaction) => transaction.id !== id))
   }
 
