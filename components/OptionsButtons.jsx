@@ -1,11 +1,17 @@
 import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
+import { useState } from 'react';
+import DataInputIncome from './DataInputIncome';
 
-export default function OptionsButtons() {
+export default function OptionsButtons({}) {
+
+  const [ showModal, setShowModal ] = useState(false);
+
   return (
       <View style={styles.optionsContainer}>
-        <Pressable style={[styles.optionMargin, styles.buttonStyle]}>
+        <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModal(!showModal)}>
           <Text style={styles.buttonTextStyle}>Ingreso</Text>
         </Pressable>
+        <DataInputIncome showModal={showModal}/>
         <Pressable style={styles.buttonStyle}>
           <Text style={styles.buttonTextStyle}>Gasto</Text>
         </Pressable>

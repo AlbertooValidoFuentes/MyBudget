@@ -1,12 +1,12 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-export default function ListItem() {
+export default function ListItem({ id, tipo, cantidad, descripcion, fecha }) {
   return (
       <Pressable style={styles.itemContainer}>
-        <Text style={styles.itemText}>Tipo: Ingreso</Text>
-        <Text style={styles.itemText}>Cantidad: 200€</Text>
-        <Text style={styles.itemText}>Descripcion: Supermercado</Text>
-        <Text style={styles.itemText}>Fecha: 20 de Marzo</Text>
+        <Text style={styles.itemText}>Tipo: {tipo}</Text>
+        <Text style={styles.itemText}>Cantidad: {cantidad}</Text>
+        <Text style={styles.itemText}>Descripcion: {descripcion}</Text>
+        <Text style={styles.itemText}>Fecha: {fecha}</Text>
       </Pressable>
   );
 }
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     borderColor: '#ECF0F1',
     borderWidth: 2
   },
-  itemText:{
+  itemText: {
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold'

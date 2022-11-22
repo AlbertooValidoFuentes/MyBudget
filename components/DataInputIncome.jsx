@@ -1,9 +1,9 @@
 
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 
-export default function DataInputIncome() {
+export default function DataInputIncome({showModal}) {
     return (
-        <Modal visible={false} animationType={'fade'} transparent={true}>
+        <Modal visible={showModal} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
                 <Text style={styles.title}>Ingreso:</Text>
                 <TextInput
