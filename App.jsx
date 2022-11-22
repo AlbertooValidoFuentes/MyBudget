@@ -18,7 +18,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Balance balance={balance}/>
-      <OptionsButtons setTransaction={setTransaction}/>
+      <OptionsButtons setTransaction={setTransaction} setBalance={setBalance} balance={balance}/>
 
       <FlatList data={transaction} renderItem={(renderItem) => {
         const {id, tipo, cantidad, descripcion, fecha} = renderItem.item

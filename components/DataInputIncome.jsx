@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default function DataInputIncome({showModal, setShowModal, setTransaction}) {
+export default function DataInputIncome({showModal, setShowModal, setTransaction, setBalance, balance}) {
 
     const transaction = {
         id: uuid.v4(),
@@ -32,6 +32,8 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
     const sendData = () => {
         setTransaction(transaction)
         setShowModal(!showModal)
+        
+        setBalance(balance + parseInt(transaction.cantidad))
         console.log(transaction);
     }
 
@@ -59,7 +61,6 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
                     value={transaction.descripcion}
-                    defaultValue={transaction.descripcion}
 
                 />
                 <TextInput

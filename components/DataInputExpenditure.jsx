@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default function DataInputExpediture({showModal, setShowModal, setTransaction}) {
+export default function DataInputExpediture({showModal, setShowModal, setTransaction, setBalance, balance}) {
 
     const transaction = {
         id: uuid.v4(),
@@ -32,6 +32,8 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
     const sendData = () => {
         setTransaction(transaction)
         setShowModal(!showModal)
+        
+        setBalance(balance - parseInt(transaction.cantidad))
         console.log(transaction);
     }
 
