@@ -4,7 +4,13 @@ export default function Balance({balance}) {
   return (
       <View style={styles.balanceContainer}>
         <Text style={styles.text}>Balance:</Text>
-        <Text style={styles.text}>{balance} €</Text>
+        {
+        balance < 0 ?
+          <Text style={styles.textRed}>{balance} €</Text>
+          :
+          <Text style={styles.text}>{balance} €</Text>
+        }
+        
       </View>
   );
 }
@@ -20,6 +26,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
+    padding: 5,
+    fontSize: 20
+  },
+  textRed: {
+    color: 'red',
     padding: 5,
     fontSize: 20
   }
