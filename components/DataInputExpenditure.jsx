@@ -2,11 +2,11 @@
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default function DataInputExpediture({showModal, setShowModal, setTransaction, setBalance, balance}) {
+export default function DataInputExpediture({showModal, setShowModal, setTransaction, setBalance, balance, transaction}) {
 
-    const transaction = {
+    const transactionUser = {
         id: uuid.v4(),
-        tipo: 'Ingreso',
+        tipo: 'Gasto',
         cantidad: 0,
         descripcion: "",
         fecha: ""
@@ -15,26 +15,27 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
     
 
     const changeCuantityHandler = (value) => {
-        transaction.cantidad = value
-        console.log(transaction.cantidad)
+        transactionUser.cantidad = value
+        console.log(transactionUser.cantidad)
     }
 
     const changeDescriptionHandler = (value) => {
-        transaction.descripcion = value
-        console.log(transaction.descripcion)
+        transactionUser.descripcion += value
+        console.log(transactionUser.descripcion)
     }
 
     const changeDateHandler = (value) => {
-        transaction.fecha = value
-        console.log(transaction.fecha)
+        transactionUser.fecha = value
+        console.log(transactionUser.fecha)
     }
 
     const sendData = () => {
-        setTransaction(transaction)
+        console.log(transactionUser)
+        setTransaction(() => [...transaction, transactionUser])
         setShowModal(!showModal)
         
-        setBalance(balance - parseInt(transaction.cantidad))
-        console.log(transaction);
+        setBalance(balance - parseInt(transactionUser.cantidad))
+        console.log(transactionUser);
     }
 
     const cancel = () => {
@@ -44,15 +45,15 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
     return (
         <Modal visible={showModal} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
-                <Text style={styles.title}>Gasto:</Text>
+                <Text style={styles.title}>Ingreso:</Text>
                 <TextInput
                     style={styles.inputStyle}
                     placeholder='Introduce la cantidad'
                     keyboardType='numeric'
                     placeholderTextColor='white'
                     onChangeText={changeCuantityHandler}
-                    value={transaction.cantidad}
-                    
+                    value={transactionUser.cantidad}
+
                 />
                 <TextInput
                     style={styles.inputStyle}
@@ -60,7 +61,7 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
                     keyboardType='default'
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
-                    value={transaction.descripcion}
+                    value={transactionUser.descripcion}
 
                 />
                 <TextInput
@@ -68,10 +69,10 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
                     placeholder='Introduce la fecha'
                     placeholderTextColor='white'
                     onChangeText={changeDateHandler}
-                    value={transaction.fecha}
+                    value={transactionUser.fecha}
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
-                    <Text style={styles.buttonTextStyle}>Añadir gasto</Text>
+                    <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
                 </Pressable>
                 <Pressable style={styles.buttonStyle} onPress={cancel}>
                     <Text style={styles.buttonTextStyle}>Cancelar</Text>

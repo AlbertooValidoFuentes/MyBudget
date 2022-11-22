@@ -17,7 +17,7 @@ export default function OptionsButtons({ setTransaction, setBalance, balance, tr
       <Pressable style={styles.buttonStyle} onPress={() => setShowModalExpediture(!showModalExpediture)}>
         <Text style={styles.buttonTextStyle}>Gasto</Text>
       </Pressable>
-      <DataInputExpenditure showModal={showModalExpediture} setShowModal={setShowModalExpediture} setTransaction={setTransaction} setBalance={setBalance} balance={balance}/>
+      <DataInputExpenditure showModal={showModalExpediture} setShowModal={setShowModalExpediture} setTransaction={setTransaction} setBalance={setBalance} balance={balance} transaction={transaction}/>
     </View>
   );
 }
