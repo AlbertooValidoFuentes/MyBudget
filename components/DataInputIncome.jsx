@@ -46,6 +46,7 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     placeholderTextColor='white'
                     onChangeText={changeCuantityHandler}
                     value={transaction.cantidad}
+                    
                 />
                 <TextInput
                     style={styles.inputStyle}
@@ -54,6 +55,8 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
                     value={transaction.descripcion}
+                    defaultValue={transaction.descripcion}
+
                 />
                 <TextInput
                     style={styles.inputStyle}

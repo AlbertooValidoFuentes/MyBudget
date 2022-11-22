@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
-import uuid from 'react-native-uuid';
 
 import Balance from './components/Balance';
 import DataInputExpediture from './components/DataInputExpenditure';
@@ -24,12 +23,10 @@ export default function App() {
       <FlatList data={transaction} renderItem={(renderItem) => {
         const {id, tipo, cantidad, descripcion, fecha} = renderItem.item
         return(
-          <ListItem id={id} tipo={tipo} cantidad={cantidad} descripcion={descripcion} fecha={fecha}/>
+          <ListItem tipo={tipo} cantidad={cantidad} descripcion={descripcion} fecha={fecha}/>
         )
       }}
       />
-      
-
       <StatusBar style="auto" hidden={true}/>
     </View>
   );

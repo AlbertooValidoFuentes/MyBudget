@@ -1,20 +1,23 @@
 import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 import { useState } from 'react';
-import DataInputIncome from './DataInputIncome';
+import DataInputIncome from './DataInputIncome'
+import DataInputExpenditure from './DataInputExpenditure'
 
 export default function OptionsButtons({setTransaction}) {
 
-  const [ showModal, setShowModal ] = useState(false);
+  const [ showModalIncome, setShowModalIncome ] = useState(false);
+  const [ showModalExpediture, setShowModalExpediture ] = useState(false);
 
   return (
       <View style={styles.optionsContainer}>
         <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModal(!showModal)}>
           <Text style={styles.buttonTextStyle}>Ingreso</Text>
         </Pressable>
-        <DataInputIncome showModal={showModal} setShowModal={setShowModal} setTransaction={setTransaction}/>
-        <Pressable style={styles.buttonStyle}>
+        <DataInputIncome showModal={showModalIncome} setShowModal={setShowModalIncome} setTransaction={setTransaction}/>
+        <Pressable style={styles.buttonStyle} onPress={() => setShowModalExpediture(!showModalExpediture)}>
           <Text style={styles.buttonTextStyle}>Gasto</Text>
         </Pressable>
+        <DataInputExpenditure showModal={showModalExpediture} setShowModal={setShowModalExpediture} setTransaction={setTransaction}/>
       </View>
   );
 }

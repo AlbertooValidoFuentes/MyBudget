@@ -1,6 +1,6 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-export default function ListItem({ id, tipo, cantidad, descripcion, fecha }) {
+export default function ListItem({tipo, cantidad, descripcion, fecha }) {
   return (
       <Pressable style={styles.itemContainer}>
         <Text style={styles.itemText}>Tipo: {tipo}</Text>
