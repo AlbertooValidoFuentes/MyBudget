@@ -11,17 +11,38 @@ import OptionsButtons from './components/OptionsButtons';
 export default function App() {
 
   const [balance, setBalance] = useState(0)
-  const [transaction, setTransaction] = useState([])
+  const [transaction, setTransaction] = useState([
+    // {
+    //   tipo: 'Hola',
+    //   cantidad: 200,
+    //   descripcion: 'asdfasdfsdf',
+    // },
+    // {
+    //   tipo: 'Hola',
+    //   cantidad: 200,
+    //   descripcion: 'asdfasdfsdf',
+    // },
+    // {
+    //   tipo: 'Hola',
+    //   cantidad: 200,
+    //   descripcion: 'asdfasdfsdf',
+    // },
+    // {
+    //   tipo: 'Hola',
+    //   cantidad: 200,
+    //   descripcion: 'asdfasdfsdf',
+    // }
+  ])
 
   console.log(transaction);
   
   return (
     <View style={styles.container}>
       <Balance balance={balance}/>
-      <OptionsButtons setTransaction={setTransaction} setBalance={setBalance} balance={balance}/>
+      <OptionsButtons setTransaction={setTransaction} transaction={transaction} setBalance={setBalance} balance={balance}/>
 
-      <FlatList data={transaction} renderItem={(renderItem) => {
-        const {id, tipo, cantidad, descripcion, fecha} = renderItem.item
+      <FlatList data={transaction}  style={styles.list} renderItem={(renderItem) => {
+        const {tipo, cantidad, descripcion, fecha} = renderItem.item
         return(
           <ListItem tipo={tipo} cantidad={cantidad} descripcion={descripcion} fecha={fecha}/>
         )
@@ -38,4 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C3E50',
     alignItems: 'center',
   },
+  list: {
+    width: '90%'
+  }
 });

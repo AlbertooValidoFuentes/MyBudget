@@ -20,7 +20,7 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
     }
 
     const changeDescriptionHandler = (value) => {
-        transaction.descripcion += value
+        transaction.descripcion = value
         console.log(transaction.descripcion)
     }
 
@@ -61,7 +61,6 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
                     value={transaction.descripcion}
-                    defaultValue={transaction.descripcion}
 
                 />
                 <TextInput

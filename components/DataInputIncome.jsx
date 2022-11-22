@@ -2,9 +2,9 @@
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default function DataInputIncome({showModal, setShowModal, setTransaction, setBalance, balance}) {
+export default function DataInputIncome({showModal, setShowModal, setTransaction, setBalance, balance, transaction}) {
 
-    const transaction = {
+    const transactionUser = {
         id: uuid.v4(),
         tipo: 'Ingreso',
         cantidad: 0,
@@ -15,26 +15,27 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
     
 
     const changeCuantityHandler = (value) => {
-        transaction.cantidad = value
-        console.log(transaction.cantidad)
+        transactionUser.cantidad = value
+        console.log(transactionUser.cantidad)
     }
 
     const changeDescriptionHandler = (value) => {
-        transaction.descripcion += value
-        console.log(transaction.descripcion)
+        transactionUser.descripcion += value
+        console.log(transactionUser.descripcion)
     }
 
     const changeDateHandler = (value) => {
-        transaction.fecha = value
-        console.log(transaction.fecha)
+        transactionUser.fecha = value
+        console.log(transactionUser.fecha)
     }
 
     const sendData = () => {
-        setTransaction(transaction)
+        console.log(transactionUser)
+        setTransaction(() => [...transaction, transactionUser])
         setShowModal(!showModal)
         
-        setBalance(balance + parseInt(transaction.cantidad))
-        console.log(transaction);
+        setBalance(balance + parseInt(transactionUser.cantidad))
+        console.log(transactionUser);
     }
 
     const cancel = () => {
@@ -51,7 +52,7 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     keyboardType='numeric'
                     placeholderTextColor='white'
                     onChangeText={changeCuantityHandler}
-                    value={transaction.cantidad}
+                    value={transactionUser.cantidad}
 
                 />
                 <TextInput
@@ -60,7 +61,7 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     keyboardType='default'
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
-                    value={transaction.descripcion}
+                    value={transactionUser.descripcion}
 
                 />
                 <TextInput
@@ -68,7 +69,7 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     placeholder='Introduce la fecha'
                     placeholderTextColor='white'
                     onChangeText={changeDateHandler}
-                    value={transaction.fecha}
+                    value={transactionUser.fecha}
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>

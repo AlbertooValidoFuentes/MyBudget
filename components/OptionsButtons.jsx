@@ -3,7 +3,7 @@ import { useState } from 'react';
 import DataInputIncome from './DataInputIncome'
 import DataInputExpenditure from './DataInputExpenditure'
 
-export default function OptionsButtons({ setTransaction, setBalance, balance }) {
+export default function OptionsButtons({ setTransaction, setBalance, balance, transaction }) {
 
   const [showModalIncome, setShowModalIncome] = useState(false);
   const [showModalExpediture, setShowModalExpediture] = useState(false);
@@ -13,7 +13,7 @@ export default function OptionsButtons({ setTransaction, setBalance, balance }) 
       <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModalIncome(!showModalIncome)}>
         <Text style={styles.buttonTextStyle}>Ingreso</Text>
       </Pressable>
-      <DataInputIncome showModal={showModalIncome} setShowModal={setShowModalIncome} setTransaction={setTransaction} setBalance={setBalance} balance={balance}/>
+      <DataInputIncome showModal={showModalIncome} setShowModal={setShowModalIncome} setTransaction={setTransaction} setBalance={setBalance} balance={balance} transaction={transaction}/>
       <Pressable style={styles.buttonStyle} onPress={() => setShowModalExpediture(!showModalExpediture)}>
         <Text style={styles.buttonTextStyle}>Gasto</Text>
       </Pressable>
@@ -38,10 +38,12 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 20,
     alignItems: 'center',
+    marginBottom: 10
+
   },
   buttonTextStyle: {
     color: 'white',
     fontsize: 18,
     fontWeight: 'bold'
-  }
+    }
 });
