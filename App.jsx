@@ -11,28 +11,7 @@ import OptionsButtons from './components/OptionsButtons';
 export default function App() {
 
   const [balance, setBalance] = useState(0)
-  const [transaction, setTransaction] = useState([
-    // {
-    //   tipo: 'Hola',
-    //   cantidad: 200,
-    //   descripcion: 'asdfasdfsdf',
-    // },
-    // {
-    //   tipo: 'Hola',
-    //   cantidad: 200,
-    //   descripcion: 'asdfasdfsdf',
-    // },
-    // {
-    //   tipo: 'Hola',
-    //   cantidad: 200,
-    //   descripcion: 'asdfasdfsdf',
-    // },
-    // {
-    //   tipo: 'Hola',
-    //   cantidad: 200,
-    //   descripcion: 'asdfasdfsdf',
-    // }
-  ])
+  const [transaction, setTransaction] = useState([])
 
   console.log(transaction);
   
