@@ -35,6 +35,10 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
         console.log(transaction);
     }
 
+    const cancel = () => {
+        setShowModal(!showModal)
+    }
+
     return (
         <Modal visible={showModal} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
@@ -46,7 +50,7 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     placeholderTextColor='white'
                     onChangeText={changeCuantityHandler}
                     value={transaction.cantidad}
-                    
+
                 />
                 <TextInput
                     style={styles.inputStyle}
@@ -67,6 +71,9 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
+                </Pressable>
+                <Pressable style={styles.buttonStyle} onPress={cancel}>
+                    <Text style={styles.buttonTextStyle}>Cancelar</Text>
                 </Pressable>
             </View>
         </Modal>

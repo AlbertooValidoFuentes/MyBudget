@@ -10,7 +10,7 @@ export default function OptionsButtons({setTransaction}) {
 
   return (
       <View style={styles.optionsContainer}>
-        <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModal(!showModal)}>
+        <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModalIncome(!showModalIncome)}>
           <Text style={styles.buttonTextStyle}>Ingreso</Text>
         </Pressable>
         <DataInputIncome showModal={showModalIncome} setShowModal={setShowModalIncome} setTransaction={setTransaction}/>

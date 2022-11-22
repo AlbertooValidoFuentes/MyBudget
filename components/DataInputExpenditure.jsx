@@ -35,6 +35,10 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
         console.log(transaction);
     }
 
+    const cancel = () => {
+        setShowModal(!showModal)
+    }
+
     return (
         <Modal visible={showModal} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
@@ -67,6 +71,9 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir gasto</Text>
+                </Pressable>
+                <Pressable style={styles.buttonStyle} onPress={cancel}>
+                    <Text style={styles.buttonTextStyle}>Cancelar</Text>
                 </Pressable>
             </View>
         </Modal>
