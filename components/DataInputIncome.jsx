@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default function DataInputIncome({showModal, setShowModal, setTransaction, setBalance, balance, transaction}) {
+export default function DataInputIncome({ showModal, setShowModal, setTransaction, setBalance, balance, transaction }) {
 
     const transactionUser = {
         id: uuid.v4(),
@@ -12,28 +12,23 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
         fecha: ""
     }
 
-    
-
     const changeCuantityHandler = (value) => {
         transactionUser.cantidad = value
-        console.log(transactionUser.cantidad)
     }
 
     const changeDescriptionHandler = (value) => {
         transactionUser.descripcion += value
-        console.log(transactionUser.descripcion)
     }
 
     const changeDateHandler = (value) => {
         transactionUser.fecha = value
-        console.log(transactionUser.fecha)
     }
 
     const sendData = () => {
         console.log(transactionUser)
         setTransaction(() => [...transaction, transactionUser])
         setShowModal(!showModal)
-        
+
         setBalance(balance + parseInt(transactionUser.cantidad))
         console.log(transactionUser);
     }
@@ -61,7 +56,6 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     keyboardType='default'
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
-                    value={transactionUser.descripcion}
 
                 />
                 <TextInput
@@ -69,7 +63,7 @@ export default function DataInputIncome({showModal, setShowModal, setTransaction
                     placeholder='Introduce la fecha'
                     placeholderTextColor='white'
                     onChangeText={changeDateHandler}
-                    value={transactionUser.fecha}
+                    
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>

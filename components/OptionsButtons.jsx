@@ -18,11 +18,11 @@ export default function OptionsButtons({ setTransaction, setBalance, balance, tr
       <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModalIncome(!showModalIncome)}>
         <Text style={styles.buttonTextStyle}>Ingreso</Text>
       </Pressable>
-      <DataInputIncome showModal={showModalIncome} setShowModal={setShowModalIncome} setTransaction={setTransaction} setBalance={setBalance} balance={balance} transaction={transaction}/>
+      <DataInputIncome showModal={showModalIncome} setShowModal={setShowModalIncome} setTransaction={setTransaction} setBalance={setBalance} balance={balance} transaction={transaction} />
       <Pressable style={[styles.optionMargin, styles.buttonStyle]} onPress={() => setShowModalExpediture(!showModalExpediture)}>
         <Text style={styles.buttonTextStyle}>Gasto</Text>
       </Pressable>
-      <DataInputExpenditure showModal={showModalExpediture} setShowModal={setShowModalExpediture} setTransaction={setTransaction} setBalance={setBalance} balance={balance} transaction={transaction}/>
+      <DataInputExpenditure showModal={showModalExpediture} setShowModal={setShowModalExpediture} setTransaction={setTransaction} setBalance={setBalance} balance={balance} transaction={transaction} />
       <Pressable style={styles.buttonStyle} onPress={() => deleteData()}>
         <Text style={styles.buttonTextStyle}>Borrar</Text>
       </Pressable>
@@ -53,5 +53,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontsize: 18,
     fontWeight: 'bold'
-    }
+  }
 });

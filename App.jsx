@@ -27,7 +27,9 @@ export default function App() {
             descripcion={descripcion}
             fecha={fecha} id={id}
             setTransaction={setTransaction}
-            transaction={transaction} />
+            transaction={transaction}
+            balance={balance}
+            setBalance={setBalance} />
         )
       }}
       />

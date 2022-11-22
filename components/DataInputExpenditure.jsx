@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default function DataInputExpediture({showModal, setShowModal, setTransaction, setBalance, balance, transaction}) {
+export default function DataInputExpediture({ showModal, setShowModal, setTransaction, setBalance, balance, transaction }) {
 
     const transactionUser = {
         id: uuid.v4(),
@@ -12,7 +12,7 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
         fecha: ""
     }
 
-    
+
 
     const changeCuantityHandler = (value) => {
         transactionUser.cantidad = value
@@ -33,7 +33,7 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
         console.log(transactionUser)
         setTransaction(() => [...transaction, transactionUser])
         setShowModal(!showModal)
-        
+
         setBalance(balance - parseInt(transactionUser.cantidad))
         console.log(transactionUser);
     }
@@ -61,7 +61,6 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
                     keyboardType='default'
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
-                    value={transactionUser.descripcion}
 
                 />
                 <TextInput
@@ -69,7 +68,6 @@ export default function DataInputExpediture({showModal, setShowModal, setTransac
                     placeholder='Introduce la fecha'
                     placeholderTextColor='white'
                     onChangeText={changeDateHandler}
-                    value={transactionUser.fecha}
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
