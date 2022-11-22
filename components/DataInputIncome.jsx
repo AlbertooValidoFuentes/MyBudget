@@ -1,7 +1,40 @@
 
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
+import uuid from 'react-native-uuid';
 
-export default function DataInputIncome({showModal}) {
+export default function DataInputIncome({showModal, setShowModal, setTransaction}) {
+
+    const transaction = {
+        id: uuid.v4(),
+        tipo: 'Ingreso',
+        cantidad: 0,
+        descripcion: "",
+        fecha: ""
+    }
+
+    
+
+    const changeCuantityHandler = (value) => {
+        transaction.cantidad = value
+        console.log(transaction.cantidad)
+    }
+
+    const changeDescriptionHandler = (value) => {
+        transaction.descripcion += value
+        console.log(transaction.descripcion)
+    }
+
+    const changeDateHandler = (value) => {
+        transaction.fecha = value
+        console.log(transaction.fecha)
+    }
+
+    const sendData = () => {
+        setTransaction(transaction)
+        setShowModal(!showModal)
+        console.log(transaction);
+    }
+
     return (
         <Modal visible={showModal} animationType={'fade'} transparent={true}>
             <View style={styles.productInput}>
@@ -11,19 +44,25 @@ export default function DataInputIncome({showModal}) {
                     placeholder='Introduce la cantidad'
                     keyboardType='numeric'
                     placeholderTextColor='white'
+                    onChangeText={changeCuantityHandler}
+                    value={transaction.cantidad}
                 />
                 <TextInput
                     style={styles.inputStyle}
                     placeholder='Introduce la Descripcion'
+                    keyboardType='default'
                     placeholderTextColor='white'
+                    onChangeText={changeDescriptionHandler}
+                    value={transaction.descripcion}
                 />
                 <TextInput
                     style={styles.inputStyle}
                     placeholder='Introduce la fecha'
-                    keyboardType='numeric'
                     placeholderTextColor='white'
+                    onChangeText={changeDateHandler}
+                    value={transaction.fecha}
                 />
-                <Pressable style={styles.buttonStyle}>
+                <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
                 </Pressable>
             </View>
