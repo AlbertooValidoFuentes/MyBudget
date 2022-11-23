@@ -13,6 +13,9 @@
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
+    "react-native-date-input": "^1.0.11",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-modern-datepicker": "^1.0.0-beta.91",
     "react-native-uuid": "^2.0.1"
   },
   "devDependencies": {

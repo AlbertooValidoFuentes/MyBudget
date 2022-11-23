@@ -4,7 +4,11 @@ export default function ListItem(
   { tipo, cantidad, descripcion, fecha, id, setTransaction, transaction, balance, setBalance }) {
 
   const removeProductHandler = () => {
-    setBalance(balance - cantidad)
+    
+
+    if(tipo == 'Ingreso') setBalance(parseInt(balance) - parseInt(cantidad))
+    else setBalance(parseInt(balance) + parseInt(cantidad))
+
     setTransaction(() => transaction.filter((transaction) => transaction.id !== id))
   }
 

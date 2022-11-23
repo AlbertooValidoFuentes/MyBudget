@@ -9,10 +9,8 @@ export default function DataInputExpediture({ showModal, setShowModal, setTransa
         tipo: 'Gasto',
         cantidad: 0,
         descripcion: "",
-        fecha: ""
+        fecha: new Date(Date.now()).toLocaleString()
     }
-
-
 
     const changeCuantityHandler = (value) => {
         transactionUser.cantidad = value
@@ -20,7 +18,7 @@ export default function DataInputExpediture({ showModal, setShowModal, setTransa
     }
 
     const changeDescriptionHandler = (value) => {
-        transactionUser.descripcion += value
+        transactionUser.descripcion = value
         console.log(transactionUser.descripcion)
     }
 
@@ -62,12 +60,6 @@ export default function DataInputExpediture({ showModal, setShowModal, setTransa
                     placeholderTextColor='white'
                     onChangeText={changeDescriptionHandler}
 
-                />
-                <TextInput
-                    style={styles.inputStyle}
-                    placeholder='Introduce la fecha'
-                    placeholderTextColor='white'
-                    onChangeText={changeDateHandler}
                 />
                 <Pressable style={styles.buttonStyle} onPress={sendData}>
                     <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>

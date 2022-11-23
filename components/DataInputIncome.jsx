@@ -1,6 +1,8 @@
 
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
+import { useState } from 'react';
+import DatePicker from 'react-native-modern-datepicker';
 
 export default function DataInputIncome({ showModal, setShowModal, setTransaction, setBalance, balance, transaction }) {
 
@@ -9,7 +11,7 @@ export default function DataInputIncome({ showModal, setShowModal, setTransactio
         tipo: 'Ingreso',
         cantidad: 0,
         descripcion: "",
-        fecha: ""
+        fecha: new Date(Date.now()).toLocaleString()
     }
 
     const changeCuantityHandler = (value) => {
@@ -17,11 +19,7 @@ export default function DataInputIncome({ showModal, setShowModal, setTransactio
     }
 
     const changeDescriptionHandler = (value) => {
-        transactionUser.descripcion += value
-    }
-
-    const changeDateHandler = (value) => {
-        transactionUser.fecha = value
+        transactionUser.descripcion = value
     }
 
     const sendData = () => {
@@ -58,19 +56,12 @@ export default function DataInputIncome({ showModal, setShowModal, setTransactio
                     onChangeText={changeDescriptionHandler}
 
                 />
-                <TextInput
-                    style={styles.inputStyle}
-                    placeholder='Introduce la fecha'
-                    placeholderTextColor='white'
-                    onChangeText={changeDateHandler}
-                    
-                />
-                <Pressable style={styles.buttonStyle} onPress={sendData}>
-                    <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
-                </Pressable>
-                <Pressable style={styles.buttonStyle} onPress={cancel}>
-                    <Text style={styles.buttonTextStyle}>Cancelar</Text>
-                </Pressable>
+                    <Pressable style={styles.buttonStyle} onPress={sendData}>
+                        <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
+                    </Pressable>
+                    <Pressable style={styles.buttonStyle} onPress={cancel}>
+                        <Text style={styles.buttonTextStyle}>Cancelar</Text>
+                    </Pressable>
             </View>
         </Modal>
     );
