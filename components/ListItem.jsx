@@ -1,4 +1,5 @@
-import { FlatList, Pressable, StyleSheet, Text, View, Image } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
+import {colors} from '../themes/colors.js'
 
 export default function ListItem(
   { tipo, cantidad, descripcion, fecha, id, setTransaction, transaction, balance, setBalance }) {
@@ -35,15 +36,15 @@ export default function ListItem(
 
 const styles = StyleSheet.create({
   itemContainer: {
-    backgroundColor: '#3498DB',
+    backgroundColor: colors.blue,
     padding: 20,
     marginTop: 20,
     borderRadius: 20,
-    borderColor: '#ECF0F1',
+    borderColor: colors.white,
     borderWidth: 2
   },
   itemText: {
-    color: 'white',
+    color: colors.white,
     fontSize: 16,
     fontWeight: 'bold'
 

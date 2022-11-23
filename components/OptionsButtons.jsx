@@ -3,6 +3,9 @@ import { useState } from 'react';
 import DataInputIncome from './DataInputIncome'
 import DataInputExpenditure from './DataInputExpenditure'
 
+import {colors} from '../themes/colors.js'
+
+
 export default function OptionsButtons({ setTransaction, setBalance, balance, transaction }) {
 
   const [showModalIncome, setShowModalIncome] = useState(false);
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   buttonStyle: {
-    backgroundColor: '#3498DB',
+    backgroundColor: colors.blue,
     padding: 15,
     width: 100,
     borderRadius: 20,
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
 
   },
   buttonTextStyle: {
-    color: 'white',
+    color: colors.white,
     fontsize: 18,
     fontWeight: 'bold'
   }

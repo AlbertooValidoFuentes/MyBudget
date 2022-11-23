@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import {colors} from '../themes/colors.js'
+
 export default function Balance({ balance }) {
   return (
     <View style={styles.balanceContainer}>
@@ -19,18 +21,18 @@ const styles = StyleSheet.create({
   balanceContainer: {
     width: '90%',
     alignItems: 'center',
-    backgroundColor: '#3498DB',
+    backgroundColor: colors.blue,
     padding: 20,
     borderRadius: 20,
     margin: 20
   },
   text: {
-    color: 'white',
+    color: colors.white,
     padding: 5,
     fontSize: 20
   },
   textRed: {
-    color: 'red',
+    color: colors.red,
     padding: 5,
     fontSize: 20
   }

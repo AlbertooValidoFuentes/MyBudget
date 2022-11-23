@@ -3,10 +3,9 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 
 import Balance from './components/Balance';
-import DataInputExpediture from './components/DataInputExpenditure';
-import DataInputIncome from './components/DataInputIncome';
 import ListItem from './components/ListItem';
 import OptionsButtons from './components/OptionsButtons';
+import {colors} from './themes/colors.js'
 
 export default function App() {
 
@@ -41,7 +40,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2C3E50',
+    backgroundColor: colors.backgoundColor,
     alignItems: 'center',
   },
   list: {

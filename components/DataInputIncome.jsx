@@ -1,8 +1,8 @@
 
 import { StyleSheet, Text, View, Modal, TextInput, Pressable } from 'react-native';
 import uuid from 'react-native-uuid';
-import { useState } from 'react';
-import DatePicker from 'react-native-modern-datepicker';
+import {colors} from '../themes/colors.js'
+
 
 export default function DataInputIncome({ showModal, setShowModal, setTransaction, setBalance, balance, transaction }) {
 
@@ -23,12 +23,19 @@ export default function DataInputIncome({ showModal, setShowModal, setTransactio
     }
 
     const sendData = () => {
-        console.log(transactionUser)
-        setTransaction(() => [...transaction, transactionUser])
-        setShowModal(!showModal)
 
-        setBalance(balance + parseInt(transactionUser.cantidad))
-        console.log(transactionUser);
+        if (transactionUser.cantidad == 0 || transactionUser.descripcion == '') {
+            alert('Debes rellenar todos los campos antes de enviar.')
+
+        }
+        else {
+            setTransaction(() => [...transaction, transactionUser])
+            setShowModal(!showModal)
+
+            setBalance(balance + parseInt(transactionUser.cantidad))
+        }
+
+
     }
 
     const cancel = () => {
@@ -56,12 +63,14 @@ export default function DataInputIncome({ showModal, setShowModal, setTransactio
                     onChangeText={changeDescriptionHandler}
 
                 />
-                    <Pressable style={styles.buttonStyle} onPress={sendData}>
-                        <Text style={styles.buttonTextStyle}>Añadir ingreso</Text>
-                    </Pressable>
-                    <Pressable style={styles.buttonStyle} onPress={cancel}>
-                        <Text style={styles.buttonTextStyle}>Cancelar</Text>
-                    </Pressable>
+
+                <Pressable style={styles.buttonStyle} onPress={sendData}>
+                    <Text>Añadir ingreso</Text>
+                </Pressable>
+
+                <Pressable style={styles.buttonStyle} onPress={cancel}>
+                    <Text>Cancelar</Text>
+                </Pressable>
             </View>
         </Modal>
     );
@@ -69,7 +78,7 @@ export default function DataInputIncome({ showModal, setShowModal, setTransactio
 
 const styles = StyleSheet.create({
     productInput: {
-        backgroundColor: '#2C3E50',
+        backgroundColor: colors.backgoundColor,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
@@ -78,23 +87,23 @@ const styles = StyleSheet.create({
     },
     inputStyle: {
         borderWidth: 3,
-        borderColor: 'black',
+        borderColor: colors.black,
         borderRadius: 20,
-        color: 'white',
+        color: colors.white,
         padding: 10,
         width: '90%',
         marginTop: 10,
         fontWeight: 'bold',
     },
     buttonStyle: {
-        backgroundColor: '#3498DB',
+        backgroundColor: colors.blue,
         padding: 15,
         borderRadius: 20,
         alignItems: 'center',
         marginTop: 20
     },
     title: {
-        color: 'white',
+        color: colors.white,
         fontSize: 20,
         fontWeight: 'bold',
     }
