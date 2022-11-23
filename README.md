@@ -1,4 +1,4 @@
-# Gestión de Pacientes de una veterinaria.
+# Gestión de Finanzas.
 
 Proyecto ReactNative que nos permite administrar nuestras finanzas, añadir gastos e ingresos.
 
