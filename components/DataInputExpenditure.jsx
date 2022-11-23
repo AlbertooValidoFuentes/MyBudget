@@ -15,17 +15,14 @@ export default function DataInputExpediture({ showModal, setShowModal, setTransa
 
     const changeCuantityHandler = (value) => {
         transactionUser.cantidad = value
-        console.log(transactionUser.cantidad)
     }
 
     const changeDescriptionHandler = (value) => {
         transactionUser.descripcion = value
-        console.log(transactionUser.descripcion)
     }
 
     const changeDateHandler = (value) => {
         transactionUser.fecha = value
-        console.log(transactionUser.fecha)
     }
 
     const sendData = () => {
